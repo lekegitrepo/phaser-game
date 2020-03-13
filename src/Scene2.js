@@ -28,4 +28,6 @@ export default class Scene2 extends Phaser.Scene {
       fill: "yellow"
     });
   }
+
+  update() {}
 }
