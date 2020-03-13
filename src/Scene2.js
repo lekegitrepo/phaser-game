@@ -29,10 +29,47 @@ export default class Scene2 extends Phaser.Scene {
       "ship3"
     );
 
-    this.add.text(20, 20, "Playing game", {
+    this.anims.create({
+      key: "ship1_anim",
+      frames: this.anims.generateFrameNumbers("ship"),
+      frameRate: 20,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: "ship2_anim",
+      frames: this.anims.generateFrameNumbers("ship2"),
+      frameRate: 20,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: "ship3_anim",
+      frames: this.anims.generateFrameNumbers("ship3"),
+      frameRate: 20,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: "explode",
+      frames: this.anims.generateFrameNumbers("explosion"),
+      frameRate: 20,
+      repeat: 0,
+      hideOnComplete: true
+    });
+
+    this.ship1.play("ship1_anim");
+    this.ship2.play("ship2_anim");
+    this.ship3.play("ship3_anim");
+
+    this.ship1.setInteractive();
+    this.ship2.setInteractive();
+    this.ship3.setInteractive();
+
+    /*this.add.text(20, 20, "Playing game", {
       font: "32px Arial",
       fill: "yellow"
-    });
+    });*/
   }
 
   update() {
