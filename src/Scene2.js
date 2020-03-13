@@ -39,6 +39,8 @@ export default class Scene2 extends Phaser.Scene {
     this.moveShip(this.ship1, 1);
     this.moveShip(this.ship2, 2);
     this.moveShip(this.ship3, 3);
+
+    this.background.tilePositionY -= 0.5;
   }
 
   moveShip(ship, speed) {
