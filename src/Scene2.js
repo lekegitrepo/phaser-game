@@ -1,4 +1,5 @@
 import "phaser";
+import Beam from "./beam";
 
 import config from "./config";
 
@@ -78,6 +79,8 @@ export default class Scene2 extends Phaser.Scene {
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
 
+    this.projectiles = this.add.group();
+
     /*this.add.text(20, 20, "Playing game", {
       font: "32px Arial",
       fill: "yellow"
@@ -94,6 +97,11 @@ export default class Scene2 extends Phaser.Scene {
 
     if (Phaser.Input.Keyboard.JustDown(this.spacebar)) {
       this.shootBeam();
+    }
+
+    for (var i = 0; i < this.projectiles.getChildren().length; i++) {
+      let beam = this.projectiles.getChildren()[i];
+      beam.update();
     }
   }
 
@@ -130,6 +138,8 @@ export default class Scene2 extends Phaser.Scene {
   }
 
   shootBeam() {
-    let beam = this.physics.add.sprite(this.player.x, this.player.y, "beam");
+    //let beam = this.physics.add.sprite(this.player.x, this.player.y, "beam");
+    console.log("fire");
+    let beam = new Beam(this);
   }
 }
