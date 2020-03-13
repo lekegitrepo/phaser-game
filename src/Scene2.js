@@ -2,6 +2,10 @@ import "phaser";
 
 import config from "./config";
 
+let gameSettings = {
+  playerSpeed: 200
+};
+
 export default class Scene2 extends Phaser.Scene {
   constructor() {
     super("playGame");
@@ -67,7 +71,7 @@ export default class Scene2 extends Phaser.Scene {
     );
 
     this.player.play("thrust");
-
+    this.player.setCollideWorldBounds(true);
     this.cursorKeys = this.input.keyboard.createCursorKeys();
 
     /*this.add.text(20, 20, "Playing game", {
@@ -82,6 +86,21 @@ export default class Scene2 extends Phaser.Scene {
     this.moveShip(this.ship3, 3);
 
     this.background.tilePositionY -= 0.5;
+    this.movePlayerManager();
+  }
+
+  movePlayerManager() {
+    if (this.cursorKeys.left.isDown) {
+      this.player.setVelocityX(-gameSettings.playerSpeed);
+    } else if (this.cursorKeys.right.isDown) {
+      this.player.setVelocityX(gameSettings.playerSpeed);
+    }
+
+    if (this.cursorKeys.up.isDown) {
+      this.player.setVelocityY(-gameSettings.playerSpeed);
+    } else if (this.cursorKeys.down.isDown) {
+      this.player.setVelocityY(gameSettings.playerSpeed);
+    }
   }
 
   moveShip(ship, speed) {
