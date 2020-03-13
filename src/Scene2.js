@@ -29,5 +29,22 @@ export default class Scene2 extends Phaser.Scene {
     });
   }
 
-  update() {}
+  update() {
+    this.moveShip(this.ship1, 1);
+    this.moveShip(this.ship2, 2);
+    this.moveShip(this.ship3, 3);
+  }
+
+  moveShip(ship, speed) {
+    ship.y += speed;
+    if (ship.y > config.height) {
+      this.resetShipPos(ship);
+    }
+  }
+
+  resetShipPos(ship) {
+    ship.y = 0;
+    let randomX = Phaser.Math.Between(0, config.width);
+    ship.x = randomX;
+  }
 }
