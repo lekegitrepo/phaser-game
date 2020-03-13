@@ -6,7 +6,8 @@ export default class Scene2 extends Phaser.Scene {
   }
 
   create() {
-    console.log("this Scene2 file");
+    this.background = this.add.image(0, 0, "background");
+    this.background.setOrigin(0, 0);
     this.add.text(20, 20, "Playing game", {
       font: "32px Arial",
       fill: "yellow"
