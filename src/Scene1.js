@@ -32,6 +32,11 @@ export default class Scene1 extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 16
     });
+
+    this.load.spritesheet("player", "assets/sprites/player.png", {
+      frameWidth: 16,
+      frameHeight: 24
+    });
   }
 
   create() {
