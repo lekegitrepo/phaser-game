@@ -1,23 +1,21 @@
 {
   "name": "phaser-game",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A Phaser 3 Project",
+  "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "npm run build && webpack-dev-server --mode=development"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lekegitrepo/phaser-game.git"
+    "type": "git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "bugs": {
-    "url": "https://github.com/lekegitrepo/phaser-game/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/lekegitrepo/phaser-game#readme",
+  "homepage": "",
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
@@ -28,7 +26,7 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
-    "file-loader": "^5.1.0",
+    "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "raw-loader": "^4.0.0",
     "webpack": "^4.42.0",
