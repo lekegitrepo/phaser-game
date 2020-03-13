@@ -93,7 +93,7 @@ export default class Scene2 extends Phaser.Scene {
     this.movePlayerManager();
 
     if (Phaser.Input.Keyboard.JustDown(this.spacebar)) {
-      console.log("Fire!");
+      this.shootBeam();
     }
   }
 
@@ -127,5 +127,9 @@ export default class Scene2 extends Phaser.Scene {
   destroyShip(pointer, gameObject) {
     gameObject.setTexture("explosion");
     gameObject.play("explode");
+  }
+
+  shootBeam() {
+    let beam = this.physics.add.sprite(this.player.x, this.player.y, "beam");
   }
 }
