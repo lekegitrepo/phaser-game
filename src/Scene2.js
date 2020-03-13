@@ -60,6 +60,16 @@ export default class Scene2 extends Phaser.Scene {
 
     this.input.on("gameobjectdown", this.destroyShip, this);
 
+    this.player = this.physics.add.sprite(
+      config.width / 2 - 8,
+      config.height - 64,
+      "player"
+    );
+
+    this.player.play("thrust");
+
+    this.cursorKeys = this.input.keyboard.createCursorKeys();
+
     /*this.add.text(20, 20, "Playing game", {
       font: "32px Arial",
       fill: "yellow"
