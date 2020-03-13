@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: ["babel-polyfill", "./src/index.js"],
+  entry: ["babel-polyfill", "./src/game.js"],
 
   output: {
     path: path.resolve(__dirname, "build"),
