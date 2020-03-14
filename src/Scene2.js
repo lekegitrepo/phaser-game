@@ -81,6 +81,8 @@ export default class Scene2 extends Phaser.Scene {
 
     this.projectiles = this.add.group();
 
+    this.physics.add.collider(this.projectiles, this.powerUps);
+
     /*this.add.text(20, 20, "Playing game", {
       font: "32px Arial",
       fill: "yellow"
