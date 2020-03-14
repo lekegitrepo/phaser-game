@@ -81,12 +81,19 @@ export default class Scene2 extends Phaser.Scene {
 
     this.projectiles = this.add.group();
 
+    this.enemies = this.physics.add.group();
+    this.enemies.add(this.ship1);
+    this.enemies.add(this.ship2);
+    this.enemies.add(this.ship3);
+
     this.physics.add.collider(this.projectiles, this.powerUps, function(projectile,
       powerUp){
       projectile.destroy();
     });
 
     this.physics.add.overlap(this.player, this.powerUps, this.pickPowerUp, null, this);
+
+    this.physics.add.overlap(this.player, this.enemies, this.hurtPlayer null, this);
   }
 
   update() {
@@ -145,5 +152,11 @@ export default class Scene2 extends Phaser.Scene {
 
   pickPowerUp(player, powerUp){
     powerUp.disableBody(true, true);
+  }
+
+  hurtPlayer(player, enemy){
+    this.resetShipPos(enemy);
+    player.x = config.width / 2 - 8;
+    player.y = config.height - 64;
   }
 }
