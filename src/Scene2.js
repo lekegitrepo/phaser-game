@@ -81,12 +81,12 @@ export default class Scene2 extends Phaser.Scene {
 
     this.projectiles = this.add.group();
 
-    this.physics.add.collider(this.projectiles, this.powerUps);
+    this.physics.add.collider(this.projectiles, this.powerUps, function(projectile,
+      powerUp){
+      projectile.destroy();
+    });
 
-    /*this.add.text(20, 20, "Playing game", {
-      font: "32px Arial",
-      fill: "yellow"
-    });*/
+    this.physics.add.overlap(this.player, this.powerUps, this.pickPowerUp, null, this);
   }
 
   update() {
@@ -140,8 +140,10 @@ export default class Scene2 extends Phaser.Scene {
   }
 
   shootBeam() {
-    //let beam = this.physics.add.sprite(this.player.x, this.player.y, "beam");
-    console.log("fire");
     let beam = new Beam(this);
+  }
+
+  pickPowerUp(player, powerUp){
+    powerUp.disableBody(true, true);
   }
 }
