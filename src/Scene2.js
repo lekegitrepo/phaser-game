@@ -86,16 +86,36 @@ export default class Scene2 extends Phaser.Scene {
     this.enemies.add(this.ship2);
     this.enemies.add(this.ship3);
 
-    this.physics.add.collider(this.projectiles, this.powerUps, function(projectile,
-      powerUp){
+    this.physics.add.collider(this.projectiles, this.powerUps, function(
+      projectile,
+      powerUp
+    ) {
       projectile.destroy();
     });
 
-    this.physics.add.overlap(this.player, this.powerUps, this.pickPowerUp, null, this);
+    this.physics.add.overlap(
+      this.player,
+      this.powerUps,
+      this.pickPowerUp,
+      null,
+      this
+    );
 
-    this.physics.add.overlap(this.player, this.enemies, this.hurtPlayer, null, this);
+    this.physics.add.overlap(
+      this.player,
+      this.enemies,
+      this.hurtPlayer,
+      null,
+      this
+    );
 
-    this.physics.add.overlap(this.projectiles, this.enemies, this.hitEnemy, null, this);
+    this.physics.add.overlap(
+      this.projectiles,
+      this.enemies,
+      this.hitEnemy,
+      null,
+      this
+    );
   }
 
   update() {
@@ -152,17 +172,17 @@ export default class Scene2 extends Phaser.Scene {
     let beam = new Beam(this);
   }
 
-  pickPowerUp(player, powerUp){
+  pickPowerUp(player, powerUp) {
     powerUp.disableBody(true, true);
   }
 
-  hurtPlayer(player, enemy){
+  hurtPlayer(player, enemy) {
     this.resetShipPos(enemy);
     player.x = config.width / 2 - 8;
     player.y = config.height - 64;
   }
 
-  hitEnemy(projectile, enemy){
+  hitEnemy(projectile, enemy) {
     projectile.destroy();
     this.resetShipPos(enemy);
   }
