@@ -34,6 +34,15 @@ export default class Scene2 extends Phaser.Scene {
       "ship3"
     );
 
+    let graphics = this.add.graphics();
+    graphics.fillStyle(0x000000, 1);
+    graphics.beginPath();
+    graphics.moveTo(0, 0);
+    graphics.lineTo(config.width, 0);
+    graphics.lineTo(config.width, 20);
+    graphics.lineTo(0, 20);
+    graphics.lineTo(0, 0);
+
     this.score = 0;
 
     this.scoreLabel = this.add.bitmapText(10, 5, 'pixelFont', 'Score', 16)
@@ -189,5 +198,8 @@ export default class Scene2 extends Phaser.Scene {
   hitEnemy(projectile, enemy) {
     projectile.destroy();
     this.resetShipPos(enemy);
+
+    this.score += 15;
+    this.scoreLabel.text = "Score: " + this.score;
   }
 }
