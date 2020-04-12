@@ -34,6 +34,10 @@ export default class Scene2 extends Phaser.Scene {
       "ship3"
     );
 
+    this.score = 0;
+
+    this.scoreLabel = this.add.bitmapText(10, 5, 'pixelFont', 'Score', 16)
+
     this.powerUps = this.physics.add.group();
 
     let maxObjects = 4;
